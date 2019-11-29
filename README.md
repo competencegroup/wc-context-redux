@@ -4,7 +4,7 @@ Used to decouple elements (like MyComponent below) from the store, so they can b
 # Usage
 
 ## Store provider
-```
+```js
 import { html, LitElement } from 'lit-element';
 import { connect } from 'pwa-helpers/connect-mixin.js';
 import { store } from '../store.js';
@@ -22,7 +22,7 @@ class MyParentClass extends connect(store)(LitElement) {
 ```
 
 ## Components
-```
+```js
 import connect from 'wc-context-redux/connect';
 
 const mapStateToProps = state => ({
