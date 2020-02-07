@@ -94,6 +94,10 @@ export default function createContext(contextName, defaultValue) {
       this.dispatchEvent(event);
 
       this.__unsubscribeContext = event.detail.unsubscribe;
+      if (!this.__unsubscribeContext) {
+        document.body.dispatchEvent(event);
+        this.__unsubscribeContext = event.detail.unsubscribe;
+      }
 
       if (!this.__unsubscribeContext) {
         throw new Error(`no provider found for ${contextName} consumer`, this);
