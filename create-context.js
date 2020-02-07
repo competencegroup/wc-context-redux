@@ -18,6 +18,12 @@ class BaseProvider extends HTMLElement {
       event.detail.unsubscribe = this.subscribe(event.detail.callback);
       event.stopPropagation();
     });
+    
+    document.body.addEventListener(eventName, (event) => {
+      // eslint-disable-next-line no-param-reassign
+      event.detail.unsubscribe = this.subscribe(event.detail.callback);
+      event.stopPropagation();
+    });
   }
 
   connectedCallback() {
